@@ -6,40 +6,51 @@
   }
 
   .left {
-    background-color: red;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .featured {
     background-color: orange;
   }
   .shoes {
-    background-color: green;
     display: grid;
     grid-template-columns: 50% 50%;
   }
 
   .item {
     background-color: grey;
-    height: 33vh;
-    border: 1px solid red;
+    grid-row: auto;
   }
-  
+
+  .text {
+    transform: rotate(-90deg);
+  }
+
   .right {
-    background-color: blue;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 </style>
 
 <div class="main">
-  <div class="left">A</div>
-  <div class="featured">A</div>
+  <nav class="left">
+    <p class="fake"></p>
+    <img src="../assets/icons/menu.svg" alt="menu">
+    <p class="text">Social</p>
+  </nav>
+  <div class="featured"></div>
   <div class="shoes">
-    <div class="item"></div>
-    <div class="item"></div>
-    <div class="item"></div>
-    <div class="item"></div>
-    <div class="item"></div>
-    <div class="item"></div>
+    <div class="item" *ngFor="let item of items" [ngStyle]="{ 'background-color': item.background }"></div>
   </div>
-  <div class="right">A</div>
+  <nav class="right">
+    <img src="../assets/icons/settings.svg" alt="settings">
+    <img src="../assets/icons/shopping-bag.svg" alt="shopping-bag">
+    <p class="text">Text</p>
+  </nav>
 </div>
 
 <router-outlet></router-outlet>
