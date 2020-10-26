@@ -9,5 +9,9 @@
 main {
     height: 100vh;
     display: grid;
-    grid-template-columns: 80px auto auto 80px;
+    grid-template-columns: 80px 0 auto 80px;
+}
+
+.cursor-poiter {
+    cursor: pointer;
 }
