@@ -1,5 +1,6 @@
 import { ShoesService } from './../shoes.service';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-shoes-list',
@@ -8,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoesListComponent implements OnInit {
 
-  constructor(private shoesService: ShoesService) { }
+  constructor(
+    private store: Store,
+    private shoesService: ShoesService
+  ) { }
 
   shoes: any;
 
@@ -18,5 +22,11 @@ export class ShoesListComponent implements OnInit {
 
   getShoes() {
     this.shoes = this.shoesService.getShoes();
+  }
+
+  addShoeToCart(shoe) {
+    this.store.dispatch(
+      {type: '[Shoe] add shoe to cart'}
+    )
   }
 }

@@ -9,3 +9,23 @@
 .text {
     transform: rotate(-90deg);
 }
+
+.cart-item-container {
+    position: relative;
+}
+
+.cart-items-quantity {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    line-height: 23px;
+    font-size: 14px;
+    position: absolute;
+    top: -5px;
+    right: 0px;
+}

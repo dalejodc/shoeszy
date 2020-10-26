@@ -1,5 +1,8 @@
 <nav class="secondary-navbar">
     <img src="../assets/icons/settings.svg" alt="settings">
-    <img src="../assets/icons/shopping-bag.svg" alt="shopping-bag">
+    <div class="cart-item-container">
+        <img src="../assets/icons/shopping-bag.svg" alt="shopping-bag">
+        <span *ngIf="cart > 0" class="cart-items-quantity">{{cart}}</span>
+    </div>
     <p class="text">Text</p>
 </nav>

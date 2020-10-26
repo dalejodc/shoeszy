@@ -9,7 +9,7 @@ export class PrimaryNavbarComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild('mySidenav') el: ElementRef;
+  @ViewChild('expandedNavbar') el: ElementRef;
 
   ngOnInit(): void {
   }
