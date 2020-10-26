@@ -1,0 +1,11 @@
+.shoes-list {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: red;
+    width: 100%;
+    height: 100%;
+}
+.shoe-item {
+    background-color: grey;
+    grid-row: auto;
+}

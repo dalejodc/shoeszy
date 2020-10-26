@@ -1,56 +1,8 @@
-<style>
-  .main {
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 80px auto auto 80px;
-  }
-
-  .left {
-    padding: 1.5em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .featured {
-    background-color: orange;
-  }
-  .shoes {
-    display: grid;
-    grid-template-columns: 50% 50%;
-  }
-
-  .item {
-    background-color: grey;
-    grid-row: auto;
-  }
-
-  .text {
-    transform: rotate(-90deg);
-  }
-
-  .right {
-    padding: 1.5em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-</style>
-
-<div class="main">
-  <nav class="left">
-    <p class="fake"></p>
-    <img src="../assets/icons/menu.svg" alt="menu">
-    <p class="text">Social</p>
-  </nav>
-  <div class="featured"></div>
-  <div class="shoes">
-    <div class="item" *ngFor="let item of items" [ngStyle]="{ 'background-color': item.background }"></div>
-  </div>
-  <nav class="right">
-    <img src="../assets/icons/settings.svg" alt="settings">
-    <img src="../assets/icons/shopping-bag.svg" alt="shopping-bag">
-    <p class="text">Text</p>
-  </nav>
-</div>
+<main>
+  <app-primary-navbar></app-primary-navbar>
+  <app-shoes-show></app-shoes-show>
+  <app-shoes-list ></app-shoes-list>
+  <app-secondary-navbar></app-secondary-navbar>
+</main>
 
 <router-outlet></router-outlet>
