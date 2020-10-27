@@ -6,7 +6,38 @@
     height: 100%;
 }
 .shoe-item {
-    background-color: grey;
     grid-row: auto;
     cursor: pointer;
+    position: relative;
+}
+.shoe-item:hover {
+    .shoes-list-add-to-cart {
+        transition: 0.8s;
+        visibility: visible;
+    }
+}
+
+.shoes-list-add-to-cart {
+    background-color: #212121;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    
+    svg {
+        color: white;
+    }
+}
+
+.shoes-list-add-to-cart:hover {
+    background-color:#424242;
+    width: 37px;
+    height: 37px;
+    transition: 0.1s;
 }
