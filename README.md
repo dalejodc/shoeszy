@@ -1,6 +1,6 @@
 # Shoeszy
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/05b7ebe9-3f24-4bdf-87d4-2b499b0ca449/deploy-status)](https://app.netlify.com/sites/shoeszy/deploys)
 
 ## Development server
 
