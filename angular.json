@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngrx-shoes": {
+    "shoeszy": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngrx-shoes",
+            "outputPath": "dist/shoeszy",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngrx-shoes:build"
+            "browserTarget": "shoeszy:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngrx-shoes:build:production"
+              "browserTarget": "shoeszy:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngrx-shoes:build"
+            "browserTarget": "shoeszy:build"
           }
         },
         "test": {
@@ -114,15 +114,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngrx-shoes:serve"
+            "devServerTarget": "shoeszy:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ngrx-shoes:serve:production"
+              "devServerTarget": "shoeszy:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "ngrx-shoes"
+  "defaultProject": "shoeszy"
 }
