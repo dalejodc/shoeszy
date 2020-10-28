@@ -1,3 +1,6 @@
+import { Shoe } from './../shoe';
+import { getCurrentShoe } from './../state/shoes.reducer';
+import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoesShowComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store) { }
+
+  shoe: Shoe| null;
 
   ngOnInit(): void {
+    this.store.select(getCurrentShoe).subscribe(shoe => {
+      console.log(shoe);
+      this.shoe = shoe;
+      console.log(this.shoe);
+    })
   }
 
 }

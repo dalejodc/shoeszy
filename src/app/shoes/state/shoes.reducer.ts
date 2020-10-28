@@ -17,12 +17,23 @@ export const getCurrentCart = createSelector(
     state => state.shoesCart
 )
 
+export const getCurrentShoe = createSelector(
+    getShoesFeatureState,
+    state => state.currentShoe
+)
+
 export const shoesReducer = createReducer(
     initalState,
-    on(createAction('[Shoe] add shoe to cart'), state => {
+    on(createAction('[Shoe] add shoe to cart'), (state): ShoeState => {
         return {
             ...state,
             shoesCart: [{test: 'test ' + state.shoesCart.length },...state.shoesCart]
         }
-    })
+    }),
+    on(createAction('[Shoe] set current shoe'), (state, action): ShoeState => {
+        return {
+            ...state,
+            currentShoe: action?.shoe
+        }
+    }),
 )

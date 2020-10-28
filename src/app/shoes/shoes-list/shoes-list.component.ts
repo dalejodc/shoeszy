@@ -24,6 +24,15 @@ export class ShoesListComponent implements OnInit {
     this.shoes = this.shoesService.getShoes();
   }
 
+  setCurrentShoe(shoe) {
+    this.store.dispatch(
+      {
+        type: '[Shoe] set current shoe',
+        shoe: shoe
+      }
+    )
+  }
+
   addShoeToCart(shoe) {
     this.store.dispatch(
       {type: '[Shoe] add shoe to cart'}
