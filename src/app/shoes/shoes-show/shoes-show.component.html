@@ -1,9 +1,9 @@
 <div class="shoe-show" [ngStyle]="{ 'background-color': (shoe) ? '#ECEEF0' : '#EDEDEF' }">
     <div class="shoe-preview-selected" *ngIf="shoe && shoe.photos.length > 0">
-        <img [src]="shoe.photos[0]">
+        <img [src]="selectedImagePreview">
     </div>
 
     <div class="shoe-preview" *ngIf="shoe && shoe.photos.length > 0">
-        <img [src]="item" *ngFor="let item of shoe.photos">
+        <img [src]="image" *ngFor="let image of shoe.photos" (click)="selectImage(image)" class="cursor-pointer">
     </div>
 </div>

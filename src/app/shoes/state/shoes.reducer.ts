@@ -4,11 +4,13 @@ import * as ShoesAction from './shoes.actions'
 
 export interface ShoeState {
     currentShoe: {};
+    currentShoeSelectedImagePreview: string;
     shoesCart: Array<any>
 }
 
 export const initalState: ShoeState = {
     currentShoe: null,
+    currentShoeSelectedImagePreview: null,
     shoesCart: []
 }
 
@@ -22,6 +24,11 @@ export const getCurrentCart = createSelector(
 export const getCurrentShoe = createSelector(
     getShoesFeatureState,
     state => state.currentShoe
+)
+
+export const getCurrenShoeSelectedImagePreview = createSelector(
+    getShoesFeatureState,
+    state => state.currentShoeSelectedImagePreview
 )
 
 export const shoesReducer = createReducer(
@@ -38,4 +45,10 @@ export const shoesReducer = createReducer(
             currentShoe: action.shoe
         }
     }),
+    on(ShoesAction.setCurrentShoePreviewImage, (state, action): ShoeState => {
+        return {
+            ...state,
+            currentShoeSelectedImagePreview: action.image
+        }
+    })
 )
