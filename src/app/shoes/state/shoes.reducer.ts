@@ -1,11 +1,13 @@
 import { createAction, createFeatureSelector, createReducer, createSelector, on } from '@ngrx/store'
 
+import * as ShoesAction from './shoes.actions'
+
 export interface ShoeState {
     currentShoe: {};
     shoesCart: Array<any>
 }
 
-export const initalState : ShoeState = {
+export const initalState: ShoeState = {
     currentShoe: null,
     shoesCart: []
 }
@@ -24,16 +26,16 @@ export const getCurrentShoe = createSelector(
 
 export const shoesReducer = createReducer(
     initalState,
-    on(createAction('[Shoe] add shoe to cart'), (state): ShoeState => {
+    on(ShoesAction.addShoeToCart, (state, action): ShoeState => {
         return {
             ...state,
-            shoesCart: [{test: 'test ' + state.shoesCart.length },...state.shoesCart]
+            shoesCart: [action.shoe, ...state.shoesCart]
         }
     }),
-    on(createAction('[Shoe] set current shoe'), (state, action): ShoeState => {
+    on(ShoesAction.setCurrentShoe, (state, action): ShoeState => {
         return {
             ...state,
-            currentShoe: action?.shoe
+            currentShoe: action.shoe
         }
     }),
 )

@@ -1,6 +1,9 @@
-import { ShoesService } from './../shoes.service';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { fromEventPattern } from 'rxjs';
+
+import { ShoesService } from './../shoes.service';
+import * as ShoesActions from '../state/shoes.actions';
 
 @Component({
   selector: 'app-shoes-list',
@@ -25,17 +28,10 @@ export class ShoesListComponent implements OnInit {
   }
 
   setCurrentShoe(shoe) {
-    this.store.dispatch(
-      {
-        type: '[Shoe] set current shoe',
-        shoe: shoe
-      }
-    )
+    this.store.dispatch(ShoesActions.setCurrentShoe({ shoe }))
   }
 
   addShoeToCart(shoe) {
-    this.store.dispatch(
-      {type: '[Shoe] add shoe to cart'}
-    )
+    this.store.dispatch(ShoesActions.addShoeToCart({ shoe }))
   }
 }
