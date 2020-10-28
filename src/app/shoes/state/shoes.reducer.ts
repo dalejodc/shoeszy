@@ -42,7 +42,8 @@ export const shoesReducer = createReducer(
     on(ShoesAction.setCurrentShoe, (state, action): ShoeState => {
         return {
             ...state,
-            currentShoe: action.shoe
+            currentShoe: action.shoe,
+            currentShoeSelectedImagePreview: null
         }
     }),
     on(ShoesAction.setCurrentShoePreviewImage, (state, action): ShoeState => {

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { fromEventPattern } from 'rxjs';
 
 import { ShoesService } from './../shoes.service';
 import * as ShoesActions from '../state/shoes.actions';
+import { Shoe } from '../shoe';
 
 @Component({
   selector: 'app-shoes-list',
@@ -27,8 +27,12 @@ export class ShoesListComponent implements OnInit {
     this.shoes = this.shoesService.getShoes();
   }
 
-  setCurrentShoe(shoe) {
+  setCurrentShoe(shoe: Shoe) {
     this.store.dispatch(ShoesActions.setCurrentShoe({ shoe }))
+
+    if (shoe && shoe.photos.length > 0) {
+      this.store.dispatch(ShoesActions.setCurrentShoePreviewImage({ image: shoe.photos[0] }))
+    }
   }
 
   addShoeToCart(shoe) {
