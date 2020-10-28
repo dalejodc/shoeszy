@@ -8,7 +8,11 @@
     grid-row: auto;
     cursor: pointer;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .shoe-item:hover {
     .shoes-list-add-to-cart {
         transition: 0.8s;

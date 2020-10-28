@@ -1,1 +1,9 @@
-<div class="shoe-show" [ngStyle]="{ 'background-color': (shoe) ? shoe.backgroundColor : '#EDEDEF' }"></div>
+<div class="shoe-show" [ngStyle]="{ 'background-color': (shoe) ? '#ECEEF0' : '#EDEDEF' }">
+    <div class="shoe-preview-selected" *ngIf="shoe && shoe.photos.length > 0">
+        <img [src]="shoe.photos[0]">
+    </div>
+
+    <div class="shoe-preview" *ngIf="shoe && shoe.photos.length > 0">
+        <img [src]="item" *ngFor="let item of shoe.photos">
+    </div>
+</div>

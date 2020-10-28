@@ -12,13 +12,11 @@ export class ShoesShowComponent implements OnInit {
 
   constructor(private store: Store) { }
 
-  shoe: Shoe| null;
+  shoe: Shoe | any;
 
   ngOnInit(): void {
     this.store.select(getCurrentShoe).subscribe(shoe => {
-      console.log(shoe);
       this.shoe = shoe;
-      console.log(this.shoe);
     })
   }
 
