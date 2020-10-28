@@ -5,5 +5,19 @@
 </nav>
 
 <nav class="primary-navbar_expanded" #expandedNavbar>
-    <img class="cursor-poiter" src="../assets/icons/x.svg" alt="close" (click)="closeNav()">
+    <div class="primary-navbar-wrapper">
+        <img class="cursor-poiter" src="../assets/icons/x.svg" alt="close" (click)="closeNav()">
+
+        <ul>
+            <li>
+                <a (click)="goTo('')" routerLink="''" routerLinkActive="link-active">SHOP</a>
+            </li>
+            <li>
+                <a (click)="goTo('faq')" routerLink="/faq" routerLinkActive="link-active">FAQ</a>
+            </li>
+            <li>
+                <a (click)="goTo('checkout')" routerLink="/checkout" routerLinkActive="link-active">CHECKOUT</a>
+            </li>
+        </ul>
+    </div>
 </nav>

@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-primary-navbar',
@@ -7,7 +8,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 })
 export class PrimaryNavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   @ViewChild('expandedNavbar') el: ElementRef;
 
@@ -24,7 +25,10 @@ export class PrimaryNavbarComponent implements OnInit {
 
   closeNav() {
     this.el.nativeElement.style.width = "0";
-    this.el.nativeElement.style.zIndex = -1;
-    this.el.nativeElement.style.visibility = 'hidden';
+  }
+
+  goTo(url) {
+    this.router.navigateByUrl(url);
+    this.closeNav();
   }
 }

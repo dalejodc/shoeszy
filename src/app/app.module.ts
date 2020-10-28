@@ -12,6 +12,8 @@ import { SecondaryNavbarComponent } from './components/secondary-navbar/secondar
 import { environment } from '../environments/environment';
 import { ShoesShellComponent } from './shoes/shoes-shell/shoes-shell.component';
 import { ShoesModule } from './shoes/shoes.module';
+import { FaqComponent } from './pages/faq/faq.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { ShoesModule } from './shoes/shoes.module';
     PrimaryNavbarComponent,
     SecondaryNavbarComponent,
     ShoesShellComponent,
+    FaqComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

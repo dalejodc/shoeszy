@@ -17,10 +17,34 @@
     background-color: white;
     overflow-x: hidden;
     transition: 0.8s;
-    padding: 5em;
     visibility: hidden;
+}
+
+.primary-navbar-wrapper {
+    margin: 5rem;
 }
 
 .social {
     transform: rotate(-90deg);
+}
+
+ul {
+    margin-top: 1.5rem;
+    list-style-type: none;
+}
+
+ul li {
+    padding: 5px;
+}
+
+ul li a{
+    text-decoration: none;
+}
+
+ul li a:visited{
+    text-decoration: none;
+}
+
+.link-active {
+    background-color: red;
 }
