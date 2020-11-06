@@ -1,5 +1,7 @@
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { tap } from "rxjs/operators";
 
 import { getCurrentShoe, getCurrenShoeSelectedImagePreview } from './../state/shoes.reducer';
 import * as ShoesActions from '../state/shoes.actions'
@@ -14,23 +16,21 @@ export class ShoesShowComponent implements OnInit {
 
   constructor(private store: Store) { }
 
-  selectedImagePreview: string = '';
-  shoe: Shoe | any;
+  selectedImagePreview$: Observable<string> | string = '';
+  shoe$: Observable<Shoe>;
 
   ngOnInit(): void {
-    this.store.select(getCurrentShoe).subscribe(shoe => {
-      this.shoe = shoe;
-      this.setImagePreview(this.shoe);
-    })
 
-    this.store.select(getCurrenShoeSelectedImagePreview).subscribe(image => {
-      this.selectedImagePreview = image
-    })
+    this.shoe$ = this.store.select(getCurrentShoe).pipe(tap(
+      shoe => this.setImagePreview(shoe)
+    ));
+
+    this.selectedImagePreview$ = this.store.select(getCurrenShoeSelectedImagePreview)
   }
 
   setImagePreview(shoe: Shoe) {
-    if (shoe && shoe.photos.length > 0) {
-      this.selectedImagePreview = shoe.photos[0];
+    if (shoe && shoe.photos.length > 0 && !this.selectedImagePreview$) {
+      this.selectedImagePreview$ = shoe.photos[0];
     }
   }
 

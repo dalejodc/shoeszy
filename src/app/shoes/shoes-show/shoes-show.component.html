@@ -1,6 +1,6 @@
-<div class="shoe-show" [ngStyle]="{ 'background-color': (shoe) ? '#ECEEF0' : '#EDEDEF' }">
+<div class="shoe-show" [ngStyle]="{ 'background-color': (shoe) ? '#ECEEF0' : '#EDEDEF' }" *ngIf="shoe$ | async as shoe">
     <div class="shoe-preview-selected" *ngIf="shoe && shoe.photos.length > 0">
-        <img [src]="selectedImagePreview">
+        <img [src]="selectedImagePreview$ | async">
     </div>
 
     <div class="shoe-preview" *ngIf="shoe && shoe.photos.length > 0">

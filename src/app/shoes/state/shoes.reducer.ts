@@ -1,9 +1,10 @@
 import { createAction, createFeatureSelector, createReducer, createSelector, on } from '@ngrx/store'
+import { Shoe } from '../shoe';
 
 import * as ShoesAction from './shoes.actions'
 
 export interface ShoeState {
-    currentShoe: {};
+    currentShoe: Shoe;
     currentShoeSelectedImagePreview: string;
     shoesCart: Array<any>
 }
