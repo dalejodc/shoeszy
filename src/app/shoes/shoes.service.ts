@@ -55,13 +55,13 @@ export class ShoesService {
         id: null,
         name: 'NMD R1',
         description: 'NMD R1',
-        featuredImage: 'https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/8714e7e44a6f4a53b4b8abf4000bdf5f_9366/NMD_R1_Shoes_Burgundy_FY9390_06_standard.jpg',
+        featuredImage: 'assets/shoes/nmd_r1/NMD_R1_Shoes_Burgundy_FY9390_06_standard.png',
         price: 140,
         photos: [
-          'https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/b24f434484d14627a556abf4000ad6ef_9366/NMD_R1_Shoes_Burgundy_FY9390_01_standard.jpg',
-          'https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/d22669ec01e54c71a592abf4000c6428_9366/NMD_R1_Shoes_Burgundy_FY9390_04_standard.jpg',
-          'https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/03e0d968b32742f286f9abf4000c02df_9366/NMD_R1_Shoes_Burgundy_FY9390_05_standard.jpg',
-          'https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/8714e7e44a6f4a53b4b8abf4000bdf5f_9366/NMD_R1_Shoes_Burgundy_FY9390_06_standard.jpg'],
+          'assets/shoes/nmd_r1/NMD_R1_Shoes_Burgundy_FY9390_01_standard.png',
+          'assets/shoes/nmd_r1/NMD_R1_Shoes_Burgundy_FY9390_04_standard.png',
+          'assets/shoes/nmd_r1/NMD_R1_Shoes_Burgundy_FY9390_05_standard.png',
+          'assets/shoes/nmd_r1/NMD_R1_Shoes_Burgundy_FY9390_06_standard.png'],
         backgroundColor: '#F9C9CE'
       },
       {
