@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -14,4 +17,20 @@ main {
 
 .cursor-pointer {
     cursor: pointer;
+}
+
+button {
+    padding: 8px 14px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 0;
+}
+
+.btn-primary {
+    background-color: #212121;
+    color: white;
+    border: 0;
 }

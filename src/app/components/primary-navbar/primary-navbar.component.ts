@@ -23,6 +23,10 @@ export class PrimaryNavbarComponent implements OnInit {
     this.el.nativeElement.style.width = `${sidebarWidth}px`;
   }
 
+  clearCurrentProduct(){
+    //TODO: dispatch an action to clear the current selection
+  }
+
   closeNav() {
     this.el.nativeElement.style.width = "0";
   }

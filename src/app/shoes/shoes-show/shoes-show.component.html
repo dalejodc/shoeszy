@@ -1,4 +1,4 @@
-<div class="shoe-show" [ngStyle]="{ 'background-color': (shoe) ? '#ECEEF0' : '#EDEDEF' }" *ngIf="shoe$ | async as shoe">
+<div class="shoe-show" [ngStyle]="{ 'background-color': (shoe) ? '#ECEEF0' : '#EDEDEF' }" *ngIf="shoe$ | async as shoe else elseText">
     <div class="shoe-preview-selected" *ngIf="shoe && shoe.photos.length > 0">
         <img [src]="selectedImagePreview$ | async">
     </div>
@@ -6,4 +6,12 @@
     <div class="shoe-preview" *ngIf="shoe && shoe.photos.length > 0">
         <img [src]="image" *ngFor="let image of shoe.photos" (click)="selectImage(image)" class="cursor-pointer">
     </div>
+
 </div>
+<ng-template #elseText>
+    <div class="headline-wrapper">
+        <h1  class="headline">One place.<br>Many top brand sneakers.</h1>
+        <p class="kick">Explore the best and exclusive top brand men sneakers.</p>
+        <button class="btn-primary" (click)="getRandomShoe()">Show me a random sneaker!</button>
+    </div>
+</ng-template>
