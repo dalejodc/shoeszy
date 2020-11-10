@@ -1,8 +1,14 @@
 <nav class="secondary-navbar">
     <img src="../assets/icons/settings.svg" alt="settings">
     <div class="cart-item-container">
-        <img src="../assets/icons/shopping-bag.svg" alt="shopping-bag">
+        <img src="../assets/icons/shopping-bag.svg" alt="shopping-bag" (click)="openNav()" class="cursor-pointer">
         <span *ngIf="cart > 0" class="cart-items-quantity">{{cart}}</span>
     </div>
-    <p class="text">Text</p>
+    <p class="fake"></p>
+</nav>
+
+<nav class="secondary-navbar_expanded" #expandedNavbarRight>
+    <div class="secondary-navbar-wrapper">
+        <img class="cursor-pointer" src="../assets/icons/x.svg" alt="close" (click)="closeNav()">
+    </div>
 </nav>

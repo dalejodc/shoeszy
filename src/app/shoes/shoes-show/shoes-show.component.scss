@@ -3,8 +3,12 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+
+    svg {
+        margin-left: 12px;
+    }
 }
 
 .shoe-preview-selected {
@@ -15,18 +19,19 @@
         width: 100%;
         height: auto;
         padding: 0.2rem;
+        margin-bottom: 6em;
     }
 }
 
 .shoe-preview {
-    width: 50px;
+    width: 60px;
     height: auto;
     object-fit: cover;
     display: flex;
     justify-content: center;
     position: absolute;
-    left: 42%;
-    bottom: 10%;
+    left: 46%;
+    bottom: 5%;
 
     img {
         width: 100%;

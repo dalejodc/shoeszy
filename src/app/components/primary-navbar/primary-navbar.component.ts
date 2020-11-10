@@ -18,8 +18,7 @@ export class PrimaryNavbarComponent implements OnInit {
 
   @ViewChild('expandedNavbar') el: ElementRef;
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   openNav() {
     const navbar = 80;
@@ -30,6 +29,7 @@ export class PrimaryNavbarComponent implements OnInit {
   }
 
   clearCurrentProduct(){
+    this.goTo('');
     this.store.dispatch(ShoesActions.clearCurrentShoe());
   }
 

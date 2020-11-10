@@ -46,4 +46,8 @@ export class ShoesShowComponent implements OnInit {
 
     this.store.dispatch(ShoesActions.setCurrentShoe({ shoe }))
   }
+
+  addShoeToCart(shoe) {
+    this.store.dispatch(ShoesActions.addShoeToCart({ shoe }));
+  }
 }
