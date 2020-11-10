@@ -1,11 +1,12 @@
 <div class="shoe-show" [ngStyle]="{ 'background-color': (shoe) ? '#ECEEF0' : '#EDEDEF' }" *ngIf="shoe$ | async as shoe else elseText">
     <div class="shoe-preview-selected" *ngIf="shoe && shoe.photos.length > 0">
         <img [src]="selectedImagePreview$ | async">
+        
+        <div class="shoe-preview" *ngIf="shoe && shoe.photos.length > 0">
+            <img [src]="image" *ngFor="let image of shoe.photos" (click)="selectImage(image)" class="cursor-pointer">
+        </div>
     </div>
 
-    <div class="shoe-preview" *ngIf="shoe && shoe.photos.length > 0">
-        <img [src]="image" *ngFor="let image of shoe.photos" (click)="selectImage(image)" class="cursor-pointer">
-    </div>
 
 </div>
 <ng-template #elseText>
