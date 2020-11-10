@@ -59,5 +59,11 @@ export const shoesReducer = createReducer(
             ...state,
             currentShoeSelectedImagePreview: action.image
         }
+    }),
+    on(ShoesAction.clearCurrentShoe, (state, action): ShoeState => {
+        return {
+            ...state,
+            currentShoe: null
+        }
     })
 )

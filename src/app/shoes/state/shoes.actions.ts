@@ -6,6 +6,10 @@ export const setCurrentShoe = createAction(
     props<{ shoe: Shoe }>()
 );
 
+export const clearCurrentShoe = createAction(
+    '[Shoes] clear curren shoe'
+)
+
 export const setCurrentShoePreviewImage = createAction(
     '[Shoes] set current shoe image preview',
     props<{ image: string }>()

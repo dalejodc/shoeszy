@@ -1,5 +1,8 @@
+import { Store } from '@ngrx/store';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+
+import * as ShoesActions from '../../shoes/state/shoes.actions';
 
 @Component({
   selector: 'app-primary-navbar',
@@ -8,7 +11,10 @@ import { Router } from '@angular/router';
 })
 export class PrimaryNavbarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private store: Store
+  ) { }
 
   @ViewChild('expandedNavbar') el: ElementRef;
 
@@ -24,7 +30,7 @@ export class PrimaryNavbarComponent implements OnInit {
   }
 
   clearCurrentProduct(){
-    //TODO: dispatch an action to clear the current selection
+    this.store.dispatch(ShoesActions.clearCurrentShoe());
   }
 
   closeNav() {
