@@ -1,3 +1,4 @@
+import { ShoesService } from './../shoes.service';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -14,18 +15,19 @@ import { Shoe } from './../shoe';
 })
 export class ShoesShowComponent implements OnInit {
 
-  constructor(private store: Store) { }
+  constructor(
+    private store: Store,
+    private shoeService: ShoesService
+  ) { }
 
   selectedImagePreview$: Observable<string> | string = '';
   shoe$: Observable<Shoe>;
 
   ngOnInit(): void {
 
-    this.shoe$ = this.store.select(getCurrentShoe).pipe(tap(
-      shoe => this.setImagePreview(shoe)
-    ));
+    this.shoe$ = this.store.select(getCurrentShoe);
 
-    this.selectedImagePreview$ = this.store.select(getCurrenShoeSelectedImagePreview)
+    this.selectedImagePreview$ = this.store.select(getCurrenShoeSelectedImagePreview);
   }
 
   setImagePreview(shoe: Shoe) {
@@ -36,5 +38,12 @@ export class ShoesShowComponent implements OnInit {
 
   selectImage(image) {
     this.store.dispatch(ShoesActions.setCurrentShoePreviewImage({ image }))
+  }
+
+  getRandomShoe() {
+    const shoes = this.shoeService.getShoes();
+    const shoe: Shoe = shoes[Math.floor(Math.random() * shoes.length)];
+
+    this.store.dispatch(ShoesActions.setCurrentShoe({ shoe }))
   }
 }

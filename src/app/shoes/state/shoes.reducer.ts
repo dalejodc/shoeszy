@@ -41,10 +41,17 @@ export const shoesReducer = createReducer(
         }
     }),
     on(ShoesAction.setCurrentShoe, (state, action): ShoeState => {
+
+        let currentShoeSelectedImagePreview = null;
+
+        if (action.shoe.photos.length > 0) {
+            currentShoeSelectedImagePreview =  action.shoe.photos[0];
+        }
+
         return {
             ...state,
             currentShoe: action.shoe,
-            currentShoeSelectedImagePreview: null
+            currentShoeSelectedImagePreview: currentShoeSelectedImagePreview
         }
     }),
     on(ShoesAction.setCurrentShoePreviewImage, (state, action): ShoeState => {

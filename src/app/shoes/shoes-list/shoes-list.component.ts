@@ -28,14 +28,10 @@ export class ShoesListComponent implements OnInit {
   }
 
   setCurrentShoe(shoe: Shoe) {
-    this.store.dispatch(ShoesActions.setCurrentShoe({ shoe }))
-
-    if (shoe && shoe.photos.length > 0) {
-      this.store.dispatch(ShoesActions.setCurrentShoePreviewImage({ image: shoe.photos[0] }))
-    }
+    this.store.dispatch(ShoesActions.setCurrentShoe({ shoe }));
   }
 
   addShoeToCart(shoe) {
-    this.store.dispatch(ShoesActions.addShoeToCart({ shoe }))
+    this.store.dispatch(ShoesActions.addShoeToCart({ shoe }));
   }
 }
