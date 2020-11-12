@@ -2,9 +2,8 @@ import { ShoesService } from './../shoes.service';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import * as ShoesReducer from './../state/shoes.reducer';
 
-import { getCurrentShoe, getCurrenShoeSelectedImagePreview } from './../state/shoes.reducer';
+import { getCurrentShoe, getCurrenShoeSelectedImagePreview, getShoes } from './../state';
 import * as ShoesActions from '../state/shoes.actions'
 import { Shoe } from './../shoe';
 
@@ -26,7 +25,7 @@ export class ShoesShowComponent implements OnInit {
 
   ngOnInit(): void {
     this.shoe$ = this.store.select(getCurrentShoe);
-    this.shoes$ = this.store.select(ShoesReducer.getShoes);
+    this.shoes$ = this.store.select(getShoes);
     this.selectedImagePreview$ = this.store.select(getCurrenShoeSelectedImagePreview);
   }
 

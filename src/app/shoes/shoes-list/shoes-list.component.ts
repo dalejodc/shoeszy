@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { ShoesService } from './../shoes.service';
-import * as ShoesReducer from './../state/shoes.reducer';
+import { getShoes } from './../state';
 import * as ShoesActions from '../state/shoes.actions';
 import { Shoe } from '../shoe';
 
@@ -16,10 +15,7 @@ export class ShoesListComponent implements OnInit {
 
   shoes$: Observable<Shoe[]>;
 
-  constructor(
-    private store: Store,
-    private shoesService: ShoesService
-  ) { }
+  constructor(private store: Store) { }
 
   shoes: any;
 
@@ -29,7 +25,7 @@ export class ShoesListComponent implements OnInit {
 
   getShoes() {
     this.store.dispatch(ShoesActions.loadShoes());
-    this.shoes$ = this.store.select(ShoesReducer.getShoes);
+    this.shoes$ = this.store.select(getShoes);
   }
 
   setCurrentShoe(shoe: Shoe) {

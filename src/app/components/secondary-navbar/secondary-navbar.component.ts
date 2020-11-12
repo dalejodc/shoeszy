@@ -1,6 +1,7 @@
-import { getCurrentCart } from './../../shoes/state/shoes.reducer';
-import { Store } from '@ngrx/store';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { getCurrentCart } from './../../shoes/state';
 
 @Component({
   selector: 'app-secondary-navbar',
