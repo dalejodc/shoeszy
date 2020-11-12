@@ -1,7 +1,7 @@
 <div class="shoes-list">
     <div
         class="shoe-item"
-        *ngFor="let item of shoes"
+        *ngFor="let item of shoes$ | async"
         [ngStyle]="{ 'background-color': item.backgroundColor }"
         (click)="setCurrentShoe(item)"
     >

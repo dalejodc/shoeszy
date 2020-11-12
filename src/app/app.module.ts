@@ -14,6 +14,7 @@ import { ShoesShellComponent } from './shoes/shoes-shell/shoes-shell.component';
 import { ShoesModule } from './shoes/shoes.module';
 import { FaqComponent } from './pages/faq/faq.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     ShoesModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

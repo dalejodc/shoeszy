@@ -2,7 +2,7 @@ import { ShoesService } from './../shoes.service';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap } from "rxjs/operators";
+import * as ShoesReducer from './../state/shoes.reducer';
 
 import { getCurrentShoe, getCurrenShoeSelectedImagePreview } from './../state/shoes.reducer';
 import * as ShoesActions from '../state/shoes.actions'
@@ -22,11 +22,11 @@ export class ShoesShowComponent implements OnInit {
 
   selectedImagePreview$: Observable<string> | string = '';
   shoe$: Observable<Shoe>;
+  shoes$: Observable<Shoe[]>;
 
   ngOnInit(): void {
-
     this.shoe$ = this.store.select(getCurrentShoe);
-
+    this.shoes$ = this.store.select(ShoesReducer.getShoes);
     this.selectedImagePreview$ = this.store.select(getCurrenShoeSelectedImagePreview);
   }
 
@@ -41,10 +41,12 @@ export class ShoesShowComponent implements OnInit {
   }
 
   getRandomShoe() {
-    const shoes = this.shoeService.getShoes();
-    const shoe: Shoe = shoes[Math.floor(Math.random() * shoes.length)];
+    const shoes : Shoe[] = [];
 
-    this.store.dispatch(ShoesActions.setCurrentShoe({ shoe }))
+    this.shoes$.subscribe(shoes => {
+      const shoe: Shoe = shoes[Math.floor(Math.random() * shoes.length)];
+      this.store.dispatch(ShoesActions.setCurrentShoe({ shoe }))
+    })
   }
 
   addShoeToCart(shoe) {

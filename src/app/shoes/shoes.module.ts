@@ -1,3 +1,5 @@
+import { ShoeEffects } from './state/shoes.effect';
+import { EffectsModule } from '@ngrx/effects';
 import { Routes, RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
@@ -20,6 +22,7 @@ const shoesRoutes: Routes = [
   imports: [
     RouterModule.forChild(shoesRoutes),
     StoreModule.forFeature('shoes', shoesReducer),
+    EffectsModule.forFeature([ ShoeEffects ]),
     CommonModule
   ],
   exports: [

@@ -1,4 +1,4 @@
-import { createAction, createFeatureSelector, createReducer, createSelector, on } from '@ngrx/store'
+import { createFeatureSelector, createReducer, createSelector, on } from '@ngrx/store'
 import { Shoe } from '../shoe';
 
 import * as ShoesAction from './shoes.actions'
@@ -6,16 +6,23 @@ import * as ShoesAction from './shoes.actions'
 export interface ShoeState {
     currentShoe: Shoe;
     currentShoeSelectedImagePreview: string;
-    shoesCart: Array<any>
+    shoesCart: Array<any>,
+    shoes: Shoe[],
 }
 
 export const initalState: ShoeState = {
     currentShoe: null,
     currentShoeSelectedImagePreview: null,
-    shoesCart: []
+    shoesCart: [],
+    shoes: [],
 }
 
 export const getShoesFeatureState = createFeatureSelector<ShoeState>('shoes');
+
+export const getShoes = createSelector(
+    getShoesFeatureState,
+    state => state.shoes
+)
 
 export const getCurrentCart = createSelector(
     getShoesFeatureState,
@@ -64,6 +71,12 @@ export const shoesReducer = createReducer(
         return {
             ...state,
             currentShoe: null
+        }
+    }),
+    on(ShoesAction.loadShoesSuccess, (state, action) => {
+        return {
+            ...state,
+            shoes: action.shoes
         }
     })
 )
