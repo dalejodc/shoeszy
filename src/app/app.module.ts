@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';  
+import { HttpClientModule } from '@angular/common/http';  
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +27,7 @@ import { EffectsModule } from '@ngrx/effects';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ShoesModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
