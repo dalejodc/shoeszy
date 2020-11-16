@@ -27,6 +27,8 @@ button {
     display: flex;
     align-items: center;
     border-radius: 0;
+    height: 42px;
+    min-width: 100px;
 
     svg, img {
         margin-left: 10px;

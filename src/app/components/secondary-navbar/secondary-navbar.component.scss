@@ -54,6 +54,12 @@
     margin-bottom: 1em;
 }
 
+.subtitle {
+    font-family: 'Nunito', sans-serif;
+    color: #bdbdbd;
+    margin-bottom: 20px;
+}
+
 .shoe {
     display: flex;
     justify-content: space-between;
@@ -83,7 +89,7 @@
         .shoe-name {
             color: #212121;
             font-weight: 900;
-            font-style: 25px;
+            font-size: 20px;
             text-transform: uppercase;
         }
 
