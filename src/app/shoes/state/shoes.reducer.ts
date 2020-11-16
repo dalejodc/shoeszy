@@ -6,7 +6,7 @@ import * as ShoesAction from './shoes.actions'
 export interface ShoeState {
     currentShoe: Shoe;
     currentShoeSelectedImagePreview: string;
-    shoesCart: Array<Shoe>,
+    shoesCart: Array<number>,
     shoes: Shoe[],
 }
 
@@ -22,7 +22,7 @@ export const shoesReducer = createReducer(
     on(ShoesAction.addShoeToCart, (state, action): ShoeState => {
         return {
             ...state,
-            shoesCart: [action.shoe, ...state.shoesCart]
+            shoesCart: [action.shoe.id, ...state.shoesCart]
         }
     }),
     on(ShoesAction.setCurrentShoe, (state, action): ShoeState => {

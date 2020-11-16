@@ -9,7 +9,7 @@ export class ShoesService {
 
   shoes: Shoe[] = [
     {
-      id: null,
+      id: 1001,
       name: 'Response SR 5.0',
       description: 'Response SR 5.0',
       featuredImage: 'assets/shoes/Response_Super_Shoes_Grey_FX4831_06_standard.png',
@@ -23,7 +23,7 @@ export class ShoesService {
       backgroundColor: '#e5cfe5'
     },
     {
-      id: null,
+      id: 1002,
       name: 'Predator.1',
       description: 'Predator.1',
       featuredImage: 'assets/shoes/Predator.1_Human_Race_Shoes_White_FY3502_06_standard.png',
@@ -37,7 +37,7 @@ export class ShoesService {
       backgroundColor: '#FDECB0'
     },
     {
-      id: null,
+      id: 1003,
       name: 'Samba RM',
       description: 'Samba RM',
       featuredImage: 'assets/shoes/Samba_RM_Shoes_Beige_BD7673_06_standard.png',
@@ -50,7 +50,7 @@ export class ShoesService {
       backgroundColor: '#fbf7f0'
     },
     {
-      id: null,
+      id: 1004,
       name: 'NMD R1',
       description: 'NMD R1',
       featuredImage: 'assets/shoes/NMD_R1_Shoes_Burgundy_FY9390_06_standard.png',
@@ -63,7 +63,7 @@ export class ShoesService {
       backgroundColor: '#fff0f0'
     },
     {
-      id: null,
+      id: 1005,
       name: 'Ultraboost 20',
       description: 'Ultraboost 20',
       featuredImage: 'assets/shoes/Ultraboost_20_Shoes_Black_FV8322_06_standard.png',
@@ -77,7 +77,7 @@ export class ShoesService {
       backgroundColor: '#ddf3f5'
     },
     {
-      id: null,
+      id: 1006,
       name: 'Stan Smith',
       description: 'Stan Smith',
       featuredImage: 'assets/shoes/Stan_Smith_Shoes_White_M20324_06_standard.png',
