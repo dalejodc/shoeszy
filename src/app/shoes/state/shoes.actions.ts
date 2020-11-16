@@ -21,7 +21,7 @@ export const setCurrentShoe = createAction(
 );
 
 export const clearCurrentShoe = createAction(
-    '[Shoes] clear curren shoe'
+    '[Shoes] clear current shoe'
 )
 
 export const setCurrentShoePreviewImage = createAction(
@@ -34,3 +34,7 @@ export const addShoeToCart = createAction(
     props<{ shoe: Shoe }>()
 );
 
+export const removeShoeFromCart = createAction(
+    '[Shoes] remove shoe from cart',
+    props<{ shoeId: Number }>()
+);

@@ -25,6 +25,12 @@ export const shoesReducer = createReducer(
             shoesCart: [action.shoe.id, ...state.shoesCart]
         }
     }),
+    on(ShoesAction.removeShoeFromCart, (state, action): ShoeState => {
+        return {
+            ...state,
+            shoesCart: state.shoesCart.filter(item => item != action.shoeId)
+        }
+    }),
     on(ShoesAction.setCurrentShoe, (state, action): ShoeState => {
         let currentShoeSelectedImagePreview = null;
 

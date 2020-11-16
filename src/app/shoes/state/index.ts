@@ -1,6 +1,6 @@
 import { Shoe } from './../shoe';
 import { ShoeState } from './shoes.reducer';
-import { createFeatureSelector, createReducer, createSelector } from '@ngrx/store'
+import { createFeatureSelector, createSelector } from '@ngrx/store'
 
 export const getShoesFeatureState = createFeatureSelector<ShoeState>('shoes');
 

@@ -1,9 +1,9 @@
-import { ShoesService } from './../shoes.service';
+import { tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { getCurrentShoe, getCurrenShoeSelectedImagePreview, getShoes } from './../state';
+import { getCurrentShoe, getCurrenShoeSelectedImagePreview, getShoes, getCurrentCart } from './../state';
 import * as ShoesActions from '../state/shoes.actions'
 import { Shoe } from './../shoe';
 
@@ -14,19 +14,27 @@ import { Shoe } from './../shoe';
 })
 export class ShoesShowComponent implements OnInit {
 
-  constructor(
-    private store: Store,
-    private shoeService: ShoesService
-  ) { }
+  constructor(private store: Store) { }
 
+  isSelectedShoeInCart: boolean;
   selectedImagePreview$: Observable<string> | string = '';
   shoe$: Observable<Shoe>;
   shoes$: Observable<Shoe[]>;
+  shoesCart$: Observable<Shoe[]>;
 
   ngOnInit(): void {
     this.shoe$ = this.store.select(getCurrentShoe);
     this.shoes$ = this.store.select(getShoes);
+    this.shoesCart$ = this.store.select(getCurrentCart);
+
     this.selectedImagePreview$ = this.store.select(getCurrenShoeSelectedImagePreview);
+
+    // FIXME: refactor this code
+    this.store.select(getCurrentCart).subscribe(shoes => {
+      this.shoe$.subscribe(shoe => {
+        this.isSelectedShoeInCart = shoes.map(x => x.id).includes(shoe?.id)
+      })
+    });
   }
 
   setImagePreview(shoe: Shoe) {
@@ -40,8 +48,6 @@ export class ShoesShowComponent implements OnInit {
   }
 
   getRandomShoe() {
-    const shoes : Shoe[] = [];
-
     this.shoes$.subscribe(shoes => {
       const shoe: Shoe = shoes[Math.floor(Math.random() * shoes.length)];
       this.store.dispatch(ShoesActions.setCurrentShoe({ shoe }))
@@ -50,5 +56,9 @@ export class ShoesShowComponent implements OnInit {
 
   addShoeToCart(shoe) {
     this.store.dispatch(ShoesActions.addShoeToCart({ shoe }));
+  }
+
+  deleteShoeFromCart(shoe) {
+    this.store.dispatch(ShoesActions.removeShoeFromCart({ shoeId: shoe.id }))
   }
 }

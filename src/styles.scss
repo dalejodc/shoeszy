@@ -27,6 +27,10 @@ button {
     display: flex;
     align-items: center;
     border-radius: 0;
+
+    svg, img {
+        margin-left: 10px;
+    }
 }
 
 .btn-primary {

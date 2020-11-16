@@ -1,8 +1,10 @@
+import { Router } from '@angular/router';
 import { Shoe } from './../../shoes/shoe';
 import { Observable } from 'rxjs';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 
+import * as ShoesActions from '../../shoes/state/shoes.actions';
 import { getCurrentCart } from './../../shoes/state';
 
 @Component({
@@ -12,7 +14,7 @@ import { getCurrentCart } from './../../shoes/state';
 })
 export class SecondaryNavbarComponent implements OnInit {
 
-  constructor(private store: Store) { }
+  constructor(private store: Store, private router: Router) { }
 
   @ViewChild('expandedNavbarRight') el: ElementRef;
 
@@ -32,6 +34,15 @@ export class SecondaryNavbarComponent implements OnInit {
 
   closeNav() {
     this.el.nativeElement.style.width = "0";
+  }
+
+  deleteShoeFromCart(shoe) {
+    this.store.dispatch(ShoesActions.removeShoeFromCart({ shoeId: shoe.id }))
+  }
+
+  goToHome(){
+    this.closeNav();
+    this.router.navigateByUrl('');
   }
 
 }
