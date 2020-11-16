@@ -39,10 +39,63 @@
     padding: 0px;
     color: white;
     text-align: center;
-    font-family: Arial, sans-serif;
-    line-height: 23px;
-    font-size: 14px;
+    line-height: 20px;
+    font-size: 12px;
     position: absolute;
     top: -5px;
     right: 0px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+}
+
+.title {
+    font-family: 'Alata', sans-serif;
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+}
+
+.shoe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 1rem;
+
+    .shoe-info-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .shoe-image {
+        background-color: #eceef0;
+        width: 125px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .shoe-info {
+        margin-left: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .shoe-name {
+            color: #212121;
+            font-weight: 900;
+            font-style: 25px;
+            text-transform: uppercase;
+        }
+
+        .shoe-description {
+            color: #bdbdbd;
+            margin-bottom: 1rem;
+            font-size: 12px;
+        }
+
+        .shoe-price {
+            color: #212121;
+            font-weight: 900;
+        }
+    }
 }

@@ -6,7 +6,7 @@ import * as ShoesAction from './shoes.actions'
 export interface ShoeState {
     currentShoe: Shoe;
     currentShoeSelectedImagePreview: string;
-    shoesCart: Array<any>,
+    shoesCart: Array<Shoe>,
     shoes: Shoe[],
 }
 

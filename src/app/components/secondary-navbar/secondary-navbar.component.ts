@@ -1,3 +1,5 @@
+import { Shoe } from './../../shoes/shoe';
+import { Observable } from 'rxjs';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 
@@ -14,14 +16,10 @@ export class SecondaryNavbarComponent implements OnInit {
 
   @ViewChild('expandedNavbarRight') el: ElementRef;
 
-  cart: number = 0;
+  shoesCart$: Observable<Shoe[]>;
 
   ngOnInit(): void {
-    this.store.select(getCurrentCart).subscribe(
-      cart => {
-        this.cart = cart.length;
-      }
-    )
+    this.shoesCart$ = this.store.select(getCurrentCart);
   }
 
   openNav() {

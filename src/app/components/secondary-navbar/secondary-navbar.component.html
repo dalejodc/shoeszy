@@ -2,7 +2,9 @@
     <img src="../assets/icons/settings.svg" alt="settings">
     <div class="cart-item-container">
         <img src="../assets/icons/shopping-bag.svg" alt="shopping-bag" (click)="openNav()" class="cursor-pointer">
-        <span *ngIf="cart > 0" class="cart-items-quantity">{{cart}}</span>
+        <div *ngIf="shoesCart$ | async as shoesCart" >
+            <span *ngIf="shoesCart.length > 0" class="cart-items-quantity">{{shoesCart.length }}</span>
+        </div>
     </div>
     <p class="fake"></p>
 </nav>
@@ -10,5 +12,27 @@
 <nav class="secondary-navbar_expanded" #expandedNavbarRight>
     <div class="secondary-navbar-wrapper">
         <img class="cursor-pointer" src="../assets/icons/x.svg" alt="close" (click)="closeNav()">
+        <h2 class="title">Current cart</h2>
+        <div *ngIf="shoesCart$ | async as shoesCart">
+            <div *ngFor="let shoe of shoesCart">
+                <div class="shoe">
+                    <div class="shoe-info-wrapper">
+                        <div class="shoe-image">
+                            <img [src]="shoe.featuredImage" alt="" width="100px">
+                        </div>
+                        <div class="shoe-info">
+                            <div>
+                                <p class="shoe-name">{{shoe.name}}</p>
+                                <p class="shoe-description">{{shoe.description}}</p>
+                            </div>
+                            <p class="shoe-price">{{shoe.price | currency}}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary">Remove from cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </nav>
