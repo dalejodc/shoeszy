@@ -15,6 +15,13 @@ main {
     grid-template-columns: 80px 0 auto 80px;
 }
 
+@media (max-width: 576px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 .cursor-pointer {
     cursor: pointer;
 }
@@ -27,7 +34,7 @@ button {
     display: flex;
     align-items: center;
     border-radius: 0;
-    height: 42px;
+    min-height: 42px;
     min-width: 100px;
 
     svg, img {

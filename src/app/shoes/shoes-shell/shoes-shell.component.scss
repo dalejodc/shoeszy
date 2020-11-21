@@ -8,3 +8,9 @@ app-shoes-show {
     display: flex;
     align-items: center;
 }
+
+@media (max-width: 576px) {
+    .shoes-shell {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Shoe } from './../../shoes/shoe';
 import { Observable } from 'rxjs';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, HostListener } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import * as ShoesActions from '../../shoes/state/shoes.actions';
@@ -14,6 +14,8 @@ import { getCurrentCart } from './../../shoes/state';
 })
 export class SecondaryNavbarComponent implements OnInit {
 
+  public innerWidth: any;
+
   constructor(private store: Store, private router: Router) { }
 
   @ViewChild('expandedNavbarRight') el: ElementRef;
@@ -22,18 +24,28 @@ export class SecondaryNavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.shoesCart$ = this.store.select(getCurrentCart);
+    this.innerWidth = window.innerWidth;
   }
 
   openNav() {
     const navbar = 80;
-    const sidebarWidth = navbar + ((window.innerWidth - (navbar * 2)) / 2);
+
+    if (this.innerWidth <= 576) {
+      this.el.nativeElement.style.height = '100%';
+    } else {
+      this.el.nativeElement.style.width = navbar + ((window.innerWidth - (navbar * 2)) / 2) + 'px';
+    }
+
     this.el.nativeElement.style.zIndex = 1;
     this.el.nativeElement.style.visibility = 'visible';
-    this.el.nativeElement.style.width = `${sidebarWidth}px`;
   }
 
   closeNav() {
-    this.el.nativeElement.style.width = "0";
+    if (this.innerWidth <= 576) {
+      this.el.nativeElement.style.height = '0';
+    } else {
+      this.el.nativeElement.style.width = '0';
+    }
   }
 
   deleteShoeFromCart(shoe) {
@@ -43,6 +55,11 @@ export class SecondaryNavbarComponent implements OnInit {
   goToHome(){
     this.closeNav();
     this.router.navigateByUrl('');
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize(event) {
+    this.innerWidth = window.innerWidth;
   }
 
 }

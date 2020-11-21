@@ -48,3 +48,22 @@ ul li a:visited{
 .link-active {
     background-color: red;
 }
+
+@media (max-width: 576px) {
+    .primary-navbar {
+        flex-direction: row;
+        padding: 15px;
+        max-height: 60px;
+    }
+
+    .primary-navbar_expanded {
+        height: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .primary-navbar-wrapper {
+        margin: 2.5rem;
+    }
+}
